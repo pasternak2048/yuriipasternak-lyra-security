@@ -1,10 +1,4 @@
 ﻿using LYRA.Security.Enums;
-using LYRA.Security.Models.Verify;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LYRA.Security.Signature
 {
@@ -21,8 +15,19 @@ namespace LYRA.Security.Signature
         /// <summary>
         /// Builds the canonical string that will be used to compute or verify a signature.
         /// </summary>
-        /// <param name="request">The request data required to build the string.</param>
+        /// <param name="caller">The system name of the initiating touchpoint.</param>
+        /// <param name="target">The system name of the receiving touchpoint.</param>
+        /// <param name="method">The logical action or HTTP method (e.g., POST, GET, PUBLISH).</param>
+        /// <param name="path">The path or topic (e.g., /api/orders, event.created).</param>
+        /// <param name="payloadHash">Base64-encoded SHA-512 hash of the payload content.</param>
+        /// <param name="timestamp">UTC timestamp when the signature is generated.</param>
         /// <returns>The canonical string to be signed.</returns>
-        string BuildStringToSign(VerifyRequest request);
+        string BuildStringToSign(
+            string caller,
+            string target,
+            string method,
+            string path,
+            string payloadHash,
+            string timestamp);
     }
 }

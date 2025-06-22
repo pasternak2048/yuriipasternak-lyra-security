@@ -1,5 +1,4 @@
 ﻿using LYRA.Security.Enums;
-using LYRA.Security.Models.Verify;
 
 namespace LYRA.Security.Signature
 {
@@ -17,11 +16,31 @@ namespace LYRA.Security.Signature
         /// <summary>
         /// Builds the canonical string used for signature generation or verification for HTTP requests.
         /// </summary>
-        /// <param name="request">The request containing relevant HTTP data.</param>
-        /// <returns>A string representing the canonical form of the request for signature purposes.</returns>
-        public string BuildStringToSign(VerifyRequest request)
+        /// <param name="caller">The system name of the initiating touchpoint.</param>
+        /// <param name="target">The system name of the receiving touchpoint.</param>
+        /// <param name="method">The logical action or HTTP method (e.g., POST, GET).</param>
+        /// <param name="path">The path or topic (e.g., /api/orders, event.created).</param>
+        /// <param name="payloadHash">Base64-encoded SHA-512 hash of the payload content.</param>
+        /// <param name="timestamp">UTC timestamp when the signature is generated.</param>
+        /// <returns>A canonical string used for signing or verifying the request.</returns>
+        public string BuildStringToSign(
+            string caller,
+            string target,
+            string method,
+            string path,
+            string payloadHash,
+            string timestamp)
         {
-            return $"caller={request.Caller}&target={request.Target}&method={request.Method}&path={request.Path}&payloadHash={request.PayloadHash}&timestamp={request.Timestamp}";
+            return string.Join("&", new[]
+            {
+                $"caller={caller}",
+                $"target={target}",
+                $"method={method}",
+                $"path={path}",
+                $"payloadHash={payloadHash}",
+                $"timestamp={timestamp}",
+                $"context={Context}"
+            });
         }
     }
 }
