@@ -13,11 +13,7 @@
         /// <summary>
         /// RSA asymmetric signature.
         /// </summary>
-        RSA = 2,
-
-        /// <summary>
-        /// No signature (unsigned).
-        /// </summary>
-        None = 3
+        // TODO
+        // RSA = 2,
     }
 }

@@ -14,26 +14,31 @@
         /// <summary>
         /// Event-driven context (e.g., message queues, pub/sub).
         /// </summary>
-        Event = 2,
+        // TODO
+        // Event = 2,
 
         /// <summary>
         /// Cache operation context.
         /// </summary>
-        Cache = 3,
+        // TODO
+        // Cache = 3, 
 
         /// <summary>
         /// gRPC communication context.
         /// </summary>
-        Grpc = 4,
+        // TODO
+        // Grpc = 4,
 
         /// <summary>
         /// Internal communication context within services.
         /// </summary>
-        Internal = 5,
+        // TODO
+        // Internal = 5,
 
         /// <summary>
         /// SOAP web service context.
         /// </summary>
-        Soap = 6
+        // TODO
+        // Soap = 6
     }
 }

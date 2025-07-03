@@ -18,21 +18,22 @@ namespace LYRA.Security.Signature
                     return method == "POST" || method == "PUT" || method == "PATCH";
                 }
             },
-            [AccessContext.Event] = new SignatureContextMetadata
-            {
-                Context = AccessContext.Event,
-                RequiresPayloadHash = _ => false
-            },
-            [AccessContext.Cache] = new SignatureContextMetadata
-            {
-                Context = AccessContext.Cache,
-                RequiresPayloadHash = _ => false
-            },
-            [AccessContext.Grpc] = new SignatureContextMetadata
-            {
-                Context = AccessContext.Grpc,
-                RequiresPayloadHash = _ => false
-            }
+            // TODO
+            //[AccessContext.Event] = new SignatureContextMetadata
+            //{
+            //    Context = AccessContext.Event,
+            //    RequiresPayloadHash = _ => false
+            //},
+            //[AccessContext.Cache] = new SignatureContextMetadata
+            //{
+            //    Context = AccessContext.Cache,
+            //    RequiresPayloadHash = _ => false
+            //},
+            //[AccessContext.Grpc] = new SignatureContextMetadata
+            //{
+            //    Context = AccessContext.Grpc,
+            //    RequiresPayloadHash = _ => false
+            //}
         };
 
         /// <summary>
