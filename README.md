@@ -9,11 +9,9 @@
 **LYRA** (*Let Yourself Remain Authenticated*) is a self-hosted authorization system for verifying **signed requests** between **trusted systems**.  
 It ensures that each request across service or company boundaries is intentional, validated, and safe — without inspecting the business payload.
 
-> 🔐 Built for signed trust. Designed to run anywhere. Depends on no one.
-
 ---
 
-## 🎯 What is LYRA.Security
+## What is LYRA.Security
 
 **LYRA.Security** is the cryptographic core of LYRA, providing signing, hashing, and verification logic through a unified contract model for trusted system communication.
 
@@ -33,7 +31,7 @@ It ensures that each request across service or company boundaries is intentional
 
 ---
 
-## 📦 Key Types
+## Key Types
 
 | Type | Purpose |
 |------|---------|
@@ -48,7 +46,7 @@ It ensures that each request across service or company boundaries is intentional
 
 ---
 
-## 🔁 Canonicalization (StringToSign)
+## Canonicalization (StringToSign)
 
 `SignatureStringBuilder.BuildStringToSign(meta)` produces a **stable** string using fixed keys and order:
 
@@ -62,7 +60,7 @@ caller={caller}&target={target}&action={action}&resource={resource}&payloadHash=
 
 ---
 
-## ✍️ Example: Build + Sign (Client side)
+## Example: Build + Sign (Client side)
 
 ```csharp
 var metadata = new GenericMetadata
@@ -98,7 +96,7 @@ var request = new VerifyRequest
 
 ---
 
-## ✅ Example: Verify (Server side or test)
+## Example: Verify (Server side or test)
 
 ```csharp
 // Rebuild canonical string
@@ -122,7 +120,7 @@ var ok = Signer.Verify(
 
 ---
 
-## 🧪 Test JSON (Postman)
+## Test JSON (Postman)
 
 ```json
 {
@@ -145,7 +143,7 @@ var ok = Signer.Verify(
 
 ---
 
-## 🔒 Security Notes
+## Security Notes
 
 - Use **monotonic UTC Unix seconds** as `timestamp`. Enforce a small window (e.g., ±2h) on the server.
 - Always **lowercase** `action` and keep `resource` stable (no trailing‑slash magic).
@@ -154,7 +152,7 @@ var ok = Signer.Verify(
 
 ---
 
-## 🔧 Tech
+## Tech
 
 - C# 12 / .NET 8
 - `System.Security.Cryptography` (SHA‑512, HMAC, RSA)
@@ -162,7 +160,7 @@ var ok = Signer.Verify(
 
 ---
 
-## 📄 License
+## License
 
 MIT. See [LICENSE](LICENSE).
 
