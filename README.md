@@ -25,7 +25,7 @@ It ensures that each request across service or company boundaries is intentional
   - `EncryptionHelper.ComputeSha512(string payload)` → Base64
   - `Signer.Sign(...)` / `Signer.Verify(...)` for `SignatureType` (e.g., `HmacSha512`, `RsaSha256`)
   - Constant‑time compare, Base64 utilities
-- Keeps decisions about **policies, storage, caching** in `LYRA.Server` (out of scope here).
+- Keeps decisions about **policies, storage, caching** in **[LYRA.Server](https://github.com/pasternak2048/yuriipasternak-lyra-server)**.
 
 > No middleware or policy logic lives here. Only deterministic contracts + crypto primitives.
 
