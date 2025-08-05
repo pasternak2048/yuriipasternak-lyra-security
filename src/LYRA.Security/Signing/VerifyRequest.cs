@@ -3,9 +3,6 @@
 	/// <summary>
 	/// Represents a verification request sent from a client to the LYRA server.
 	/// Combines the canonical metadata (input for signing) and the resulting signature.
-	///
-	/// This structure is the core payload of the /api/verify endpoint,
-	/// and can also be used internally for local signature verification.
 	/// </summary>
 	public sealed class VerifyRequest
 	{
@@ -20,6 +17,12 @@
 		/// Must be generated using the exact canonical string built from the metadata.
 		/// </summary>
 		public required SignedMetadata Signed { get; init; }
+
+		/// <summary>
+		/// Raw payload data (e.g., JSON body). Used only for server-side hash verification.
+		/// Not included in the canonical metadata or signature.
+		/// </summary>
+		public string? Payload { get; init; }
 
 		/// <summary>
 		/// Optional request ID (client-generated) used for replay protection.
