@@ -152,7 +152,7 @@ var ok = Signer.Verify(
 ## Tech
 
 - C# 12 / .NET 8
-- `System.Security.Cryptography` (SHA‑512, HMAC, RSA)
+- `System.Security.Cryptography` (HMAC SHA‑512, HMAC SHA‑256)
 - Zero third‑party dependencies
 
 ---
