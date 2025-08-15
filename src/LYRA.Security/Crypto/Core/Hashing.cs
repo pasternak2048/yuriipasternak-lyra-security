@@ -17,7 +17,6 @@ namespace LYRA.Security.Crypto.Core
 	/// </summary>
 	public static class Hashing
 	{
-		// UTF-8 without BOM, throwOnInvalidBytes = true (fail fast on invalid input)
 		private static readonly Encoding Utf8 = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false, throwOnInvalidBytes: true);
 
 		// -------------------------
@@ -113,7 +112,6 @@ namespace LYRA.Security.Crypto.Core
 		/// </summary>
 		public static string ToHex(ReadOnlySpan<byte> bytes)
 		{
-			// Efficient hex encoding without allocations per byte beyond the output buffer
 			var c = new char[bytes.Length * 2];
 			int ci = 0;
 			for (int i = 0; i < bytes.Length; i++)
